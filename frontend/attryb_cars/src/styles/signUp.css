@@ -1,25 +1,40 @@
 
+#sign>img{
+    width: 100%;
+    /* height: auto; */
+}
+
 #register{
     /* border: 1px solid red; */
     width: 30%;
-    height: 450px;
+    height: 500px;
     margin: auto;
-    margin-top: 8%;
+    margin-top: 12%;
     margin-bottom: 8%;
     padding: 20px 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    position: absolute;
+    top: -5%;
+    left: 35%;
+    background-color: rgb(219, 128, 16);
+    
+}
+
+#register>img{
+    width: 25%;
+    height: 40px;
 }
 
 #txt2{
     font-family: 'Courier New', Courier, monospace;
     font-size: 50px;
-    font-weight: 1000;
+    /* font-weight: 1000; */
 }
 
 #inpt3{
     width: 80%;
     height: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-radius: 10px;
     text-align: center;
 }
@@ -27,7 +42,7 @@
 #inpt5{
     width: 80%;
     height: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-radius: 10px;
     text-align: center;
 }
