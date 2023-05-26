@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../style/cars.css"
+import "../styles/cars.css"
 import axios from "axios"
 import { useState } from "react"
 

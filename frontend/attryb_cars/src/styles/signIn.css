@@ -1,3 +1,5 @@
+
+
 #log>img{
     width: 100%;
     /* height: 628px; */
@@ -18,9 +20,10 @@
     background-color: rgb(219, 128, 16);
 }
 
-#login>img{
+#logImg{
     width: 25%;
     height: 40px;
+    margin: auto;
 }
 
 #txt1{
@@ -57,12 +60,13 @@
 
 #btn1{
     font-size: 25px;
-    padding: 10px 30px;
+    padding: 5px 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 800;
     cursor: pointer;
     margin-top: 30px;
     border-radius: 20px;
+    border: 2px solid black;
 }
 
 #btn1:hover{

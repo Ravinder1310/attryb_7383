@@ -4,10 +4,12 @@ import { useEffect, useState } from "react"
 import { useLocation, useSearchParams } from "react-router-dom"
 import "../styles/cars.css"
 import { getCars } from '../redux/cars/action'
+import { CarsCard } from './SingleCar'
+import { Filtering } from './filter'
 
 export const CarsList = () => {
   const dispatch = useDispatch()
-  const cars = useSelector((store)=>store.carReducer.mens);
+  const mens = useSelector((store)=>store.carReducer.mens);
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -28,19 +30,10 @@ export const CarsList = () => {
     return (
           <div>
             <div className="mens_sort"> 
-              <div className='sort_by'>
-                <h1>SORT BY</h1>
-              <select name="order" id="order" style={{border:"1px solid black",padding:"5px 5px"}}>
-              {/* <option value="">Select by price</option>   */}
-                <option value="hello">Price(Lowest first)</option>  
-                <option value="">Discount</option>  
-                <option value="">Price(Highest first)</option>
-                <option value="">What's New</option>  
-              </select>  
-              </div> 
+             <Filtering/>
               </div>
-              <div className='mens_container' style={{gridTemplateColumns:`repeat(${grid},1fr)`,width:"100%"}}>
-            {cars.length>0 && cars.map((el) => {
+              <div className='mens_container' style={{gridTemplateColumns:`repeat(5,1fr)`,width:"100%"}}>
+            {mens.length>0 && mens.map((el) => {
                 return <CarsCard key={el.id} car={el}/>
             })}
             </div>

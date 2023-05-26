@@ -1,4 +1,5 @@
 // import {image} from ".../images/car1.png"
+import { Link } from "react-router-dom"
 import "../styles/signUp.css"
 
 export const SignUp = () => {
@@ -6,7 +7,9 @@ export const SignUp = () => {
         <div id="sign">
             <img src="https://media.gettyimages.com/id/615534878/photo/used-car-dealership-forecourt-2009-artist-unknown.jpg?s=612x612&w=0&k=20&c=e30hBgECWSAcX4VMX-bYQ8Etp0s1iYMpc2J4FKmhIpk="></img>
             <div id="register">
-                <img src="https://media.tenor.com/ajdm0sdAHbsAAAAj/munko-davidchoe.gif"/>
+            <Link to={"/"}>
+                <img id="logImg" src="https://media.tenor.com/ajdm0sdAHbsAAAAj/munko-davidchoe.gif"/>
+                </Link>
                <h1 id="txt2">Register</h1>
                <input id="inpt5" type="text" placeholder="Enter your name"/>
                <input id="inpt3" type="email" placeholder="Enter email"/><br/>

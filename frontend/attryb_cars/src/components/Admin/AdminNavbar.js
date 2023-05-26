@@ -16,7 +16,6 @@ import {
     Text,
   } from "@chakra-ui/react";
   import { Link, useNavigate } from "react-router-dom";
-  import logo from "../../logo.png";
   import { RxHamburgerMenu } from "react-icons/rx";
   import { useRef } from "react";
   
@@ -32,13 +31,7 @@ import {
             padding={2}
             justifyContent="space-between"
             height={"28px"}>
-            <Box>
-              <Center>
-                <Link to={"/"}>
-                <Image src={logo} w={"60px"} />
-                </Link>
-              </Center>
-            </Box>
+           
             <Box>
               <Center>
                 <Text color={"black"} fontWeight={700} fontSize={20}>
@@ -70,13 +63,7 @@ import {
                       justifyContent="space-evenly"
                       alignItems="center"
                       margin="20px">
-                      <Image
-                        src={logo}
-                        alt=""
-                        width={{ base: "35%", sm: "30%", mg: "40%", lg: "30%" }}
-                        height={{ base: "65px", sm: "70px", lg: "120px" }}
-                        borderRadius="50%"
-                      />
+                      
                       <Heading
                         fontSize={{
                           base: "12px",

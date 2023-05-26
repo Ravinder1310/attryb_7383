@@ -1,9 +1,10 @@
 import { Input, Button, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 // import {useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import Navbar from "../Navbar";
+// import { AuthContext } from "../context/authContext";
+// import Navbar from "../Navbar";
 import AdminNavbar from "./AdminNavbar";
+import { AuthContext } from "../../context/authContext";
 
 const AdminLogin = () => {
   const { adminData, setAdminData, adminLogin } = React.useContext(AuthContext);

@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: repeat3,1fr;
     gap: 30px;
+    /* width: 70%; */
+    padding: 0px 80px;
+    /* border: 3px solid red; */
+    margin: auto;
 }
 
 .mens_cards{
@@ -88,7 +92,7 @@
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     background-color: rgb246, 248, 248;
-    justify-content: space-around;
+    justify-content: right;
     /* gap: 100px; */
     margin-top: 10px;
     margin-bottom: 50px;
