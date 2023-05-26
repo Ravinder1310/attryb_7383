@@ -1,9 +1,10 @@
+import { CarsList } from "../components/carsList";
 
 
-export const HomePage = () => {
+export const Cars = () => {
     return (
         <div>
-            
+           <CarsList/>
         </div>
     )
-}
+};
