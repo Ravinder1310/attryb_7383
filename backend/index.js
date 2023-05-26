@@ -14,11 +14,13 @@ app.use(express.json())
 app.get("/",(req,res)=>{
     res.send("HOME PAGE")
 })
+
+app.use("/admin",adminRoute)
 app.use("/users",userRouter);
 app.use(authentication);
 app.use("/cars",carRouter);
-app.use(admin)
-app.use("/admin",adminRoute)
+// app.use(admin)
+
 
 app.listen(process.env.PORT,async()=>{
     try {

@@ -10,8 +10,9 @@ carRouter.get("/",async(req,res)=>{
 carRouter.get("/:id",async(req,res)=>{
     const carID = req.params.id;
     try {
-        const car = carModel.find({_id:carID});
-        await res.send(car)
+        const car = await carModel.find({_id:carID});
+        // console.log(car);
+         res.send(car)
     } catch (error) {
         res.send(error.message)
     }

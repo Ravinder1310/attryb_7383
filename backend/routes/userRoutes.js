@@ -37,11 +37,11 @@ userRouter.post("/addUser",async(req,res)=>{
     
     try {   
         const user = await userModel.find({email})
-        if(user.length){
+        if(user.length>0){
             bcrypt.compare(password,user[0].password,(err,result)=>{
                 if(result){
                     let token = jwt.sign({userID:user[0]._id},"car_deals")
-                    res.send({msg:"User logged in successfully", token:token})
+                    res.send({"msg":"User logged in successfully", "token":token})
                 }else{
                     res.send({"msg":"Something went wrong","err":err})
                 }
