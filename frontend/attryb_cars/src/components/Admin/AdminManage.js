@@ -49,7 +49,7 @@ const AdminManage = () => {
   useEffect(() => {
     getdata();
     setTotal(+cars.reduce((acc, el) => acc + el.price, 0));
-  }, [cars]);
+  }, []);
 
   return (
     <div>

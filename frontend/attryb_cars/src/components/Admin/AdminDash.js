@@ -26,7 +26,7 @@ const AdminDash = () => {
   useEffect(() => {
     getdata(cate);
     setTotal(dash.reduce((acc, el) => acc + el.price, 0));
-  }, [dash, cate]);
+  }, []);
 
   return (
     <div>
