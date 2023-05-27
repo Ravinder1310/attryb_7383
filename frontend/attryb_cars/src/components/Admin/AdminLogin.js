@@ -45,7 +45,7 @@ const AdminLogin = () => {
         />
         <Input
           type="password"
-          placeholder="Enter Password"
+          placeholder="Enter Password 12345"
           name="password"
           padding="20px"
           maxWidth="80%"

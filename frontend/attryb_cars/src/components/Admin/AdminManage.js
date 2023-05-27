@@ -12,13 +12,13 @@ import AdminNavbar from "./AdminNavbar";
 import { useEffect } from "react";
 
 const AdminManage = () => {
-  const [deletes, setDelete] = useState([]);
+  const [cars, setCars] = useState([]);
   const [total, setTotal] = useState(0);
 
   const getdata = async (cate) => {
     let res = await fetch(`https://lime-combative-scorpion.cyclic.app/admin/`);
     let data = await res.json();
-    setDelete(data);
+    setCars(data);
   };
 
   const AdminDelete = async (id, cate) => {
@@ -48,8 +48,8 @@ const AdminManage = () => {
 
   useEffect(() => {
     getdata();
-    setTotal(+deletes.reduce((acc, el) => acc + el.price, 0));
-  }, [deletes]);
+    setTotal(+cars.reduce((acc, el) => acc + el.price, 0));
+  }, [cars]);
 
   return (
     <div>
@@ -67,7 +67,7 @@ const AdminManage = () => {
           variant="solid"
           margin="5px"
           fontSize={{ base: "10px", sm: "18px" }}>
-          Total Product : {deletes.length}
+          Total Product : {cars.length}
         </Button>
         <Button
           disabled
@@ -90,7 +90,7 @@ const AdminManage = () => {
           md: "repeat(3,1fr)",
           lg: "repeat(4,1fr)",
         }}>
-        {deletes.map((e) => (
+        {cars.map((e) => (
           <Box shadow="md" p={4} key={e.id} fontWeight="bold" zIndex={-1} textAlign="center">
             <Image width="80%" src={e.image} alt="" />
             <Text>{e.title}</Text>
