@@ -2,7 +2,7 @@ import {  GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS } from "./actionType
 
 
 const initialState = {
-    mens:[],
+    cars:[],
     isLoading:false,
     isError:false,
 }
@@ -12,7 +12,7 @@ export const reducer=(state=initialState,{type,payload})=>{
     case GET_CAR_REQUEST:
         return {...state,isLoading:true};
     case GET_CAR_SUCCESS:
-        return {...state,isLoading:false,mens:payload}
+        return {...state,isLoading:false,cars:payload}
     case GET_CAR_FAILURE:
         return {...state,isError:true}
     default :

@@ -18,14 +18,11 @@ const AdminDash = () => {
   const [total, setTotal] = useState(0);
 
   const getdata = async (cate) => {
-    let res = await fetch(`https://odd-deer-hoodie.cyclic.app/${cate}`);
+    let res = await fetch(`https://lime-combative-scorpion.cyclic.app/admin/`);
     let data = await res.json();
     setDash(data);
   };
 
-  const handleChange = (e) => {
-    setCate(e.target.value);
-  };
   useEffect(() => {
     getdata(cate);
     setTotal(dash.reduce((acc, el) => acc + el.price, 0));
@@ -58,26 +55,7 @@ const AdminDash = () => {
           Total Inventory : ₹ {total}
         </Button>
       </Box>
-      <Box
-        zIndex="-1"
-        width="30%"
-        margin="auto"
-        marginBottom="20px"
-        fontSize={{ base: "10px", sm: "18px" }}
-        textAlign="center">
-        <Center fontWeight="bold">Select Product to see details</Center>
-        <Select
-          width="40%"
-          margin="auto"
-          value={cate}
-          placeholder="select"
-          onChange={handleChange}
-          size={{ base: "xs", sm: "sm", md: "md", lg: "lg" }}>
-          <option value="mens">Mens</option>
-          <option value="womens">Womens</option>
-          <option value="kids">Kids</option>
-        </Select>
-      </Box>
+      
       <Grid
         gap="30px"
         width="90%"
@@ -93,7 +71,7 @@ const AdminDash = () => {
         {dash.map((e) => (
           <Box shadow="md" p={5} key={e.id} fontWeight="bold">
             <Box position="relative" zIndex="-1" >
-              <Image src={e.images} alt="image 1 starting" />
+              <Image src={e.image} alt="image 1 starting" />
               {/* <Box
                 _hover={{ display: "none" }}
                 position={"absolute"}
@@ -105,14 +83,13 @@ const AdminDash = () => {
             {/* <Link to={`/book/${book.id}`}> */}
             {/* <img src={e.images} alt='Error' width={"100%"}/> */}
             {/* </Link> */}
-            <h3>{e.brand}</h3>
-            <p>{e.nameCls}</p>
+            <h3>{e.title}</h3>
+            <p>{e.discription}</p>
             <div>
             <p className="price">₹{e.price}</p>
-            <p className="original_price">₹{e.orginal_price}</p>
-            <p className="mens_discount">({e.discount}% off)</p>
+            <p className="original_price">₹{e.color}</p>
+            <p className="mens_discount">({e.mileage}</p>
             </div>
-            <p className="offer_price">Offer price ₹{e.price-80}</p>
             {/* <Link to={`/book/${book.id}/edit`}>
             <button>Edit</button>
             </Link> */}

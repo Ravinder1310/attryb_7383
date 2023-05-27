@@ -11,15 +11,11 @@ export const CarsCard = ({car}) => {
             <Link to={`/cars/${car._id}`}>
             <img src={car.images} alt='Error' width={"100%"}/>
             </Link>
-            <h3>{car.brand}</h3>
-            {/* <p>{men._id}</p> */}
-            <p>{car.nameCls}</p>
+            <h3>{car.title}</h3>
             <div>
             <p className="price">₹{car.price}</p>
-            <p className="original_price">₹{car.orginal_price}</p>
-            <p className="mens_discount">({car.discount}% off)</p>
+            <p className="original_price">₹{car.color}</p>
             </div>
-            <p className="offer_price">Offer price ₹{car.price-80}</p>
             
         </div>
     )

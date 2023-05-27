@@ -16,7 +16,7 @@ const getCarFailureAction = () => {
 export const getCars =(params={}) => (dispatch) => {
     dispatch(getCarRequestAction());
 
-    axios.get(`http://localhost:3004/mens`,params).then((res)=>{
+    axios.get(`https://lime-combative-scorpion.cyclic.app/admin`,params).then((res)=>{
         dispatch(getCarSuccessAction(res.data))
     }).catch((error)=>{
         dispatch(getCarFailureAction(error))

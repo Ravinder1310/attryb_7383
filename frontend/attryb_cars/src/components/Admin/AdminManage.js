@@ -13,17 +13,16 @@ import { useEffect } from "react";
 
 const AdminManage = () => {
   const [deletes, setDelete] = useState([]);
-  const [cate, setCate] = useState("");
   const [total, setTotal] = useState(0);
 
   const getdata = async (cate) => {
-    let res = await fetch(`https://odd-deer-hoodie.cyclic.app/${cate}`);
+    let res = await fetch(`https://lime-combative-scorpion.cyclic.app/admin/`);
     let data = await res.json();
     setDelete(data);
   };
 
   const AdminDelete = async (id, cate) => {
-    await fetch(`https://odd-deer-hoodie.cyclic.app/${cate}/${id}`, {
+    await fetch(`https://lime-combative-scorpion.cyclic.app/admin/deleteCar/${id}`, {
       method: "DELETE",
     });
   };
@@ -34,7 +33,7 @@ const AdminManage = () => {
       price: +updatePrice,
     };
     console.log(newPrice);
-    await fetch(`https://odd-deer-hoodie.cyclic.app/${cate}/${id}`, {
+    await fetch(`https://lime-combative-scorpion.cyclic.app/admin/updateCar/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -48,9 +47,9 @@ const AdminManage = () => {
   };
 
   useEffect(() => {
-    getdata(cate);
+    getdata();
     setTotal(+deletes.reduce((acc, el) => acc + el.price, 0));
-  }, [deletes, cate]);
+  }, [deletes]);
 
   return (
     <div>
@@ -79,25 +78,6 @@ const AdminManage = () => {
           Total Inventory : ₹ {total}
         </Button>
       </Box>
-      <Box
-        width="30%"
-        margin="auto"
-        marginBottom="20px"
-        fontSize={{ base: "10px", sm: "18px" }}
-        textAlign="center">
-        <Center fontWeight="bold">Select Product to see details</Center>
-        <Select
-          width="40%"
-          margin="auto"
-          value={cate}
-          placeholder="select"
-          onChange={handleChange}
-          size={{ base: "xs", sm: "sm", md: "md", lg: "lg" }}>
-          <option value="mens">Mens</option>
-          <option value="womens">Womens</option>
-          <option value="kids">Kids</option>
-        </Select>
-      </Box>
       <Grid
         gap="25px"
         width="90%"
@@ -112,12 +92,12 @@ const AdminManage = () => {
         }}>
         {deletes.map((e) => (
           <Box shadow="md" p={4} key={e.id} fontWeight="bold" zIndex={-1} textAlign="center">
-            <Image width="80%" src={e.images} alt="" />
-            <Text>{e.brand}</Text>
-            <Text>{e.nameCls}</Text>
+            <Image width="80%" src={e.image} alt="" />
+            <Text>{e.title}</Text>
+            <Text>{e.discription}</Text>
             <Text>{e.price}</Text>
-            <p className="mens_discount">({e.discount}% off)</p>
-            <p className="offer_price">Offer price ₹{e.price-80}</p>
+            <p className="mens_discount">{e.color}</p>
+            <p className="offer_price">{e.mileage}</p>
             <Button
               fontSize={{ base: "18px", sm: "12px", md: "15px", lg: "14px" }}
               colorScheme="blue"

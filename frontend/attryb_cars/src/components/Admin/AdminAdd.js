@@ -12,24 +12,19 @@ import {
   import AdminNavbar from "./AdminNavbar";
   
   const initial = {
-    image1: "",
-    image2: "",
-    image3: "",
+    image: "",
     title: "",
-    short_description: "",
-    long_description: "",
+    description: "",
     price: 0,
-    reviews: 0,
-    thumbnail1: "",
-    thumbnail2: "",
-    thumbnail3: "",
+    color:"",
+    mileage:""
   };
   const AdminAdd = () => {
     const [add, setAdd] = useState(initial);
     const [cate, setCate] = useState("");
   
     const getAdd = async (add, cate) => {
-      let res = await fetch(`https://odd-deer-hoodie.cyclic.app/${cate}`, {
+      let res = await fetch(`https://lime-combative-scorpion.cyclic.app/admin/addCar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +38,7 @@ import {
     const handleChange = (e) => {
       e.preventDefault();
       const { name, value } = e.target;
-      if (name === "price" || name === "reviews") {
+      if (name === "price" || name === "color") {
         setAdd({ ...add, [name]: +value });
       } else {
         setAdd({ ...add, [name]: value });
@@ -68,7 +63,7 @@ import {
           <Heading marginTop="70px">
             <Center
               fontSize={{ base: "10px", sm: "18px", md: "20px", lg: "25px" }} marginBottom="20px">
-              ADD PRODUCTS
+              ADD CARS
             </Center>
           </Heading>
           <FormControl
@@ -85,46 +80,41 @@ import {
             <Input
               type="url"
               marginBottom="10px"
-              placeholder="Product Image1"
-              name="image1"
-              value={add.images}
+              placeholder="Car Image"
+              name="image"
+              value={add.image}
               onChange={handleChange}
             />
-            
-            <Select
-              value={cate}
-              placeholder="select category"
-              onChange={handleChanges}
-              marginBottom="10px">
-              <option value="mens">Men</option>
-              <option value="womens">Women</option>
-              <option value="kids">Kids</option>
-  
-            </Select>
             <FormLabel
               fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
               margin="-1px">
               Title
             </FormLabel>
-            <Input
-              type="text"
-              marginBottom="10px"
-              placeholder="Product title"
-              name="title"
-              value={add.title}
-              onChange={handleChange}
-            />
+            <Select
+              value={cate}
+              placeholder="select category"
+              onChange={handleChanges}
+              marginBottom="10px">
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+              <option value="maruti">Maruti</option>
+              <option value="hundai">Hundai</option>
+              <option value="lamborgini">Lamborgini</option>
+              <option value="toyota">Toyota</option>
+              <option value="ford">Ford</option>
+  
+            </Select>
             <FormLabel
               fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
               margin="-1px">
-              Short_Description
+              Description
             </FormLabel>
             <Input
               type="text"
               marginBottom="10px"
               placeholder="Product short_description"
               name="short_description"
-              value={add.short_description}
+              value={add.description}
               onChange={handleChange}
             />
            
@@ -143,20 +133,32 @@ import {
             <FormLabel
               fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
               margin="-1px">
-              Reviews
+              Color
             </FormLabel>
             <Input
               marginBottom="10px"
               placeholder="Product reviews"
               name="reviews"
-              value={add.reviews}
+              value={add.color}
+              onChange={handleChange}
+            />
+            <FormLabel
+              fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
+              margin="-1px">
+              Mielage
+            </FormLabel>
+            <Input
+              marginBottom="10px"
+              placeholder="Product reviews"
+              name="mileage"
+              value={add.mileage}
               onChange={handleChange}
             />
             
           </FormControl>
           <Center>
             <Button colorScheme="blue" onClick={addProduct} marginBottom="20px">
-              ADD PRODUCT
+              ADD Car
             </Button>
           </Center>
         </Box>
